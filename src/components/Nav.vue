@@ -43,7 +43,6 @@ export default {
       <img @click="home" src="../assets/img/logo_kojo.jpg" alt="">
     </div>
     <div class="right-nav">
-      <p v-if="ferie.status" class="ferie">Siamo chiusi per ferie dal {{ ferie.from }} al {{ ferie.to }}</p>
       <div class="nav1">
         <img src="../assets/img/punta1.png" alt="">
         <div class="right-nav1"></div>
@@ -388,16 +387,7 @@ export default {
     
   }
 }
-.ferie{
-  margin-right: 10px;
-}
-.ferie, .ferie-mb{
-  color: red;
-}
-.ferie-mb{
-  margin-left: 10px;
-  display: none;
-}
+
 
 .info-btn{
 transform: rotateZ(765deg);
