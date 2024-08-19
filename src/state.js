@@ -12,6 +12,7 @@ export const state = reactive({
 
   //---1-Gestione interfaccia grafica
   
+  infoside: false,
   navMobile: false,
   checkOut_t: 1,
   message : {

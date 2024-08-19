@@ -80,38 +80,38 @@ export default {
     </div>
     <div class="nav-mb">
       <div class="t-mb"></div>
-      <div class="btn-menu" @click="state.openside" :class="state.sideMenuValue? 'btn-off' : 'btn-on'">
+      <div class="btn-menu" @click="state.navMobile = !state.navMobile" :class="state.navMobile? 'btn-off' : 'btn-on'">
         <div class="l1"></div>
         <div class="l2"></div>
         <div class="l1"></div>
       </div>
     </div>
   </div>
-  <p v-if="ferie.status" class="ferie-mb">Siamo chiusi per ferie dal {{ ferie.from }} al {{ ferie.to }}</p>
-  <div :class="state.sideMenuValue ? 'nav-mb-on' : 'nav-mb-off'">
-    <div :class="state.sideMenuValue ? 'burger-close-on' : 'burger-close-off'" @click="state.openside">
-      <div class="line"  :class="state.infomenu ?   'menu-off': 'active-link' "></div>
-      <div class="line l1" :class="state.infomenu ?   'menu-off': 'active-link' "></div>
+
+  <div :class="state.navMobile ? 'nav-mb-on' : 'nav-mb-off'">
+    <div :class="state.navMobile ? 'burger-close-on' : 'burger-close-off'" @click="state.navMobile = !state.navMobile">
+      <div class="line"  :class="state.infoside ?   'menu-off': 'active-link' "></div>
+      <div class="line l1" :class="state.infoside ?   'menu-off': 'active-link' "></div>
     </div>
-    <div :class="state.sideMenuValue ? 'top-on' : 'top-off'">
-      <router-link :to="{ name: 'home' }" :class="state.infomenu ?   'menu-off': '' " class="nav-link" @click="state.updateActvPage(1)" >home</router-link>
-      <router-link :to="{ name: 'menu' }" :class="state.infomenu ? 'menu-off': '' " class="nav-link" @click="state.updateActvPage(2)" >menu</router-link>
-      <router-link v-if="asporto" :to="{ name: 'ordina' }" :class="state.infomenu ? 'menu-off': '' " class="nav-link" @click="state.updateActvPage(5)" >Ordina d'Asporto</router-link>
-      <a href="tel:+393451187723" v-if="tavoli" :class="state.infomenu ? 'menu-off': '' " class="nav-link"  >Prenota tavolo</a>
-      <router-link :to="{ name: 'news' }" :class="state.infomenu ? 'menu-off': '' " class="nav-link" @click="state.updateActvPage(3)" >chi siamo?</router-link>
-      <router-link :to="{ name: 'story' }" :class="state.infomenu ? 'menu-off': '' " class="nav-link" @click="state.updateActvPage(3)" >chi siamo?</router-link>
-      <router-link :to="{ name: 'contatti' }" :class="state.infomenu ? 'menu-off': '' " class="nav-link" @click="state.updateActvPage(4)" >contatti</router-link>
-      <div class="nav-link info"  :class="state.infomenu ? 'info-on' : 'info-off'">
-        <div :class="state.infomenu ? 'top-info-on' : 'top-info-off'" >
-          <h4 @click="state.infoside">info</h4>
-          <span  @click="state.infoside" :class="state.infomenu ? 'info-btn' : 'info-n'">+</span>
+    <div :class="state.navMobile ? 'top-on' : 'top-off'">
+      <router-link :to="{ name: 'home' }" :class="state.infoside ?   'menu-off': '' " class="nav-link" @click="state.updateActvPage(1)" >home</router-link>
+      <router-link :to="{ name: 'menu' }" :class="state.infoside ? 'menu-off': '' " class="nav-link" @click="state.updateActvPage(2)" >menu</router-link>
+      <router-link v-if="asporto" :to="{ name: 'ordina' }" :class="state.infoside ? 'menu-off': '' " class="nav-link" @click="state.updateActvPage(5)" >Ordina d'Asporto</router-link>
+      <a href="tel:+393451187723" v-if="tavoli" :class="state.infoside ? 'menu-off': '' " class="nav-link"  >Prenota tavolo</a>
+      <router-link :to="{ name: 'news' }" :class="state.infoside ? 'menu-off': '' " class="nav-link" @click="state.updateActvPage(3)" >news</router-link>
+      <router-link :to="{ name: 'story' }" :class="state.infoside ? 'menu-off': '' " class="nav-link" @click="state.updateActvPage(3)" >chi siamo?</router-link>
+      <router-link :to="{ name: 'contatti' }" :class="state.infoside ? 'menu-off': '' " class="nav-link" @click="state.updateActvPage(4)" >contatti</router-link>
+      <div class="nav-link info"  :class="state.infoside ? 'info-on' : 'info-off'">
+        <div :class="state.infoside ? 'top-info-on' : 'top-info-off'" >
+          <h4 @click="state.infoside = !state.infoside">info</h4>
+          <span  @click="state.infoside = !state.infoside" :class="state.infoside ? 'info-btn' : 'info-n'">+</span>
         </div>
 
-        <div :class="state.infomenu ? 'main-info-on' : 'main-info-off'">
+        <div :class="state.infoside ? 'main-info-on' : 'main-info-off'">
 
           <div class="sec-1">
             <h4>Dove puoi trovarci</h4>
-            <p>Monsano</p>
+            <p>monte san vito</p>
           </div>
 
           <div class="sec-2">
@@ -138,7 +138,7 @@ export default {
 
         </div>
 
-        <div :class="state.infomenu ? 'sec-3' : 'sec-3-off'" >
+        <div :class="state.infoside ? 'sec-3' : 'sec-3-off'" >
           Kojo sushi, PI: 02913470429, 
           <a href="https://www.iubenda.com/privacy-policy/89654778/cookie-policy" class="link" title="Cookie Policy ">Cookie Policy, </a>
           <a href="https://www.iubenda.com/privacy-policy/89654778" class="link" title="Privacy Policy "> Privacy Policy</a>
@@ -689,7 +689,6 @@ height: 0%;
     text-transform: uppercase;
     line-height: 2rem;
     color: white;
-    font-family: 'Gabarito', cursive;
     font-size: 1.8rem;
   }
 
