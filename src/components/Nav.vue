@@ -94,13 +94,13 @@ export default {
       <div class="line l1" :class="state.infoside ?   'menu-off': 'active-link' "></div>
     </div>
     <div :class="state.navMobile ? 'top-on' : 'top-off'">
-      <router-link :to="{ name: 'home' }" :class="state.infoside ?   'menu-off': '' " class="nav-link" @click="state.updateActvPage(1)" >home</router-link>
-      <router-link :to="{ name: 'menu' }" :class="state.infoside ? 'menu-off': '' " class="nav-link" @click="state.updateActvPage(2)" >menu</router-link>
-      <router-link v-if="asporto" :to="{ name: 'ordina' }" :class="state.infoside ? 'menu-off': '' " class="nav-link" @click="state.updateActvPage(5)" >Ordina d'Asporto</router-link>
+      <router-link :to="{ name: 'home' }" :class="state.infoside ?   'menu-off': '' " class="nav-link" @click="state.navMobile = false" >home</router-link>
+      <router-link :to="{ name: 'menu' }" :class="state.infoside ? 'menu-off': '' " class="nav-link" @click="state.navMobile = false" >menu</router-link>
+      <router-link v-if="asporto" :to="{ name: 'ordina' }" :class="state.infoside ? 'menu-off': '' " class="nav-link" @click="state.navMobile = false" >Ordina d'Asporto</router-link>
       <a href="tel:+393451187723" v-if="tavoli" :class="state.infoside ? 'menu-off': '' " class="nav-link"  >Prenota tavolo</a>
-      <router-link :to="{ name: 'news' }" :class="state.infoside ? 'menu-off': '' " class="nav-link" @click="state.updateActvPage(3)" >news</router-link>
-      <router-link :to="{ name: 'story' }" :class="state.infoside ? 'menu-off': '' " class="nav-link" @click="state.updateActvPage(3)" >chi siamo?</router-link>
-      <router-link :to="{ name: 'contatti' }" :class="state.infoside ? 'menu-off': '' " class="nav-link" @click="state.updateActvPage(4)" >contatti</router-link>
+      <router-link :to="{ name: 'news' }" :class="state.infoside ? 'menu-off': '' " class="nav-link" @click="state.navMobile = false" >news</router-link>
+      <router-link :to="{ name: 'story' }" :class="state.infoside ? 'menu-off': '' " class="nav-link" @click="state.navMobile = false" >chi siamo?</router-link>
+      <router-link :to="{ name: 'contatti' }" :class="state.infoside ? 'menu-off': '' " class="nav-link" @click="state.navMobile = false" >contatti</router-link>
       <div class="nav-link info"  :class="state.infoside ? 'info-on' : 'info-off'">
         <div :class="state.infoside ? 'top-info-on' : 'top-info-off'" >
           <h4 @click="state.infoside = !state.infoside">info</h4>
