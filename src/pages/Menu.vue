@@ -239,7 +239,7 @@
       </div>
       <div class="sect">
         <div @click="open_x(3)" :class="selectedItem.x_al ? 'closer' : ''" class="head">
-          <div class="name">allergeni</div>
+          <div class="name">Allergeni</div>
           <div class="opener"></div>
         </div>
         <div v-if="selectedItem.x_al" class="body allergens">
