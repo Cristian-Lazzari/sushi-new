@@ -293,7 +293,7 @@ export default {
     z-index: 5315;
     background-color: $c-nav;
     width: 100%;
-    height:115px;
+    //height:115px;
     animation: slideinm 1 1s ease-in-out;
     @keyframes slideinm {
       from{
@@ -694,7 +694,7 @@ height: 0%;
 }
 @media (max-width: 1300px) {
   .nav{
-    height: 125px;
+    height: 90px !important;
     .right-nav{
       display: none;
     }
