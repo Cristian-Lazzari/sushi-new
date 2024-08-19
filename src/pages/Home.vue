@@ -75,7 +75,7 @@
   scroll-snap-type: y mandatory;
   section{
     scroll-snap-align: start;
-    //background-color: $c7;
+    background: linear-gradient($c1 40%, rgba(75, 12, 12, 0) 80%) ;
     color: $cText;
     display: flex;
     width: 100%;
