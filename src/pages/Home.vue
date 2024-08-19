@@ -11,23 +11,23 @@
         content: [
           {
             'title' : 'Scopri il nostro menu pieno di golosità',
-            'img' : state.domain + '/img/pizza-1.png',
-            'p' : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic obcaecati blanditiis iste quos facilis nemo alias! Obcaecati aut omnis cupiditate asperiores eos, dolor ipsum, debitis exercitationem excepturi ab quibusdam hic!',
+            'img' : state.domain + '/img/sushi-1.png',
+            'p' : 'Scopri la nostra ampia selezione di piatti, dai classici nigiri ai roll più innovativi. Sfoglia il menù e trova il piatto che risveglierà i tuoi sensi.',
             'cta' : 'Vedi menu',
             'cta_destination' : 'menu',  //1 asporto 2 tavoli 3 menu 4 contatti 5 about us
           },
           {
             'title' : 'Prenota subito un tavolo',
-            'img' : state.domain + '/img/pizza-2.png',
-            'p' : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic obcaecati blanditiis iste quos facilis nemo alias! Obcaecati aut omnis cupiditate asperiores eos, dolor ipsum, debitis exercitationem excepturi ab quibusdam hic!',
+            'img' : state.domain + '/img/sushi-2.png',
+            'p' : 'Vuoi goderti l’atmosfera rilassante del nostro ristorante? Prenota un tavolo e vivi un’esperienza unica, dove ogni dettaglio è curato per farti sentire speciale. Che sia per una cena romantica o una serata tra amici, ti aspettiamo per deliziarti con il meglio del sushi.',
             'cta' : 'Prenota tavolo',
             'cta_destination' : 'check-out',  //1 asporto 2 tavoli 3 menu 4 contatti 5 about us
           },
           {
             'title' : 'Ordina a domicilio o d\'asporto',
-            'img' : state.domain + '/img/pizza-3.png',
-            'p' : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic obcaecati blanditiis iste quos facilis nemo alias! Obcaecati aut omnis cupiditate asperiores eos, dolor ipsum, debitis exercitationem excepturi ab quibusdam hic!',
-            'cta' : 'Prenota Asporto',
+            'img' : state.domain + '/img/sushi-3.png',
+            'p' : 'Hai voglia di sushi fresco e autentico? Con un paio di click, porta l’eccellenza direttamente a casa tua. Ordina online e lasciati sorprendere dai nostri sapori unici.',
+            'cta' : 'Prenota d\' Asporto',
             'cta_destination' : 'ordina',  //1 asporto 2 tavoli 3 menu 4 contatti 5 about us
           },
         ]
@@ -75,7 +75,7 @@
   scroll-snap-type: y mandatory;
   section{
     scroll-snap-align: start;
-    background-color: $c7;
+    //background-color: $c7;
     color: $cText;
     display: flex;
     width: 100%;
@@ -111,7 +111,7 @@
   }
   section:nth-child(even){
     flex-flow: row-reverse;
-    background-color: $c6;
+    //background-color: $c6;
     .text{
       align-items: flex-start;
       text-align: left;
