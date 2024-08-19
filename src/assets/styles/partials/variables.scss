@@ -346,7 +346,7 @@ from {
                 align-items: flex-end;
                 padding: 3px;
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.324);
-                .allergiens{
+                .allergens{
                 width: 100%;
                 display: flex;
                 justify-content: flex-end;
@@ -395,7 +395,7 @@ from {
             width: 60px;
             
             }
-            .allergiens{
+            .allergens{
             position: absolute;
             bottom: -5px;
             left: 10px;
@@ -461,7 +461,7 @@ from {
         display: none;
 
     }
-    .allergiens{
+    .allergens{
         display: flex;
         gap: 3px;
         img{
@@ -509,7 +509,7 @@ from {
             justify-content: space-between;
         }
         
-        h3, .allergiens, span{
+        h3, .allergens, span{
             position: relative;
             z-index: 300;
         }

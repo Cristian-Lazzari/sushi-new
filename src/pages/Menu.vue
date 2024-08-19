@@ -8,7 +8,7 @@
       return {
         state,
         products: [],
-        allergiens: [],
+        allergens: [],
         ingredients: [],
         categories: [],
         openCategory: false,
@@ -30,7 +30,7 @@
           description: '',
           category_name: '',
           ingredients: [],
-          allergiens: [],
+          allergens: [],
           special: [],
         },
       };
@@ -63,7 +63,7 @@
         si.id = p.id
         si.special = p.special
         si.ingredients = p.ingredients
-        si.allergiens = p.allergiens
+        si.allergens = p.allergens
         si.category_name = p.category.name
       },
       closeShow(si){
@@ -75,7 +75,7 @@
         si.price = ''
         si.id = ''
         si.ingredients = []
-        si.allergiens = []
+        si.allergens = []
         si.special = []
       },
       //funzioni per testo ingredienti
@@ -105,14 +105,14 @@
       async getProduct(c_Id){
         this.openCategory = false
         this.products = []
-        this.allergiens = []
+        this.allergens = []
         if(c_Id !== 0){
           let products = await axios.get(state.baseUrl + "api/products", {
 					params: {
 						category: c_Id,
 					}})
           this.products = products.data.results
-          this.allergiens = products.data.allergiens
+          this.allergens = products.data.allergens
           this.categories.forEach(c => {
             if(c.id == c_Id){
               this.category = c
@@ -126,25 +126,25 @@
           });
 
           this.products.forEach(e => {
-            let oldallergiens = JSON.parse(e.allergiens, true)
-            const newallergiens = oldallergiens.map(p => this.allergiens[p])
-            e.allergiens = newallergiens
+            let oldallergens = JSON.parse(e.allergens, true)
+            const newallergens = oldallergens.map(p => this.allergens[p])
+            e.allergens = newallergens
           });
 
         }else{
           let products = await axios.get(state.baseUrl + "api/products", {})
           this.products = products.data.results
-          this.allergiens = products.data.allergiens
+          this.allergens = products.data.allergens
 
           this.products.forEach(e => {
             e.special = []
-            let oldallergiens = JSON.parse(e.allergiens, true)
-            e.allergiens = []
-            let newallergiens = oldallergiens.map(p => this.allergiens[p])
-            for (let i = 0; i < newallergiens.length; i++) {
-              let el = newallergiens[i];
+            let oldallergens = JSON.parse(e.allergens, true)
+            e.allergens = []
+            let newallergens = oldallergens.map(p => this.allergens[p])
+            for (let i = 0; i < newallergens.length; i++) {
+              let el = newallergens[i];
               if(el.special == 0){
-                e.allergiens.push(el)
+                e.allergens.push(el)
               }else{
                 e.special.push(el)
               }       
@@ -193,7 +193,7 @@
     <div class="cont-p" >
       <div class="product-card" v-for="p in products" :key="p.id" @click="openShow(p, selectedItem)">
         <div class="image-cont" :style="state.getImage(p.image)">
-          <div class="allergiens">
+          <div class="allergens">
             <img  v-for="a in p.special" :key="a.name" :src="a.img" alt="">
           </div>
         </div>
@@ -213,7 +213,7 @@
       <div class="image-c" :style="state.getImage(selectedItem.img)">
         <h3>{{ selectedItem.name }}</h3>
         <div class="bottom">
-          <div class="allergiens">
+          <div class="allergens">
             <img v-for="a in selectedItem.special" :key="a.name" :src="a.img" alt="">
           </div>
           <span>{{ selectedItem.category_name }}</span>
@@ -239,12 +239,12 @@
       </div>
       <div class="sect">
         <div @click="open_x(3)" :class="selectedItem.x_al ? 'closer' : ''" class="head">
-          <div class="name">Allergieni</div>
+          <div class="name">allergeni</div>
           <div class="opener"></div>
         </div>
-        <div v-if="selectedItem.x_al" class="body allergiens">
-          <img  v-for="a in selectedItem.allergiens" :key="a.name" :src="a.img" alt="">
-          <p v-if="selectedItem.allergiens.length == 0" >Nessun allergiene presente</p>
+        <div v-if="selectedItem.x_al" class="body allergens">
+          <img  v-for="a in selectedItem.allergens" :key="a.name" :src="a.img" alt="">
+          <p v-if="selectedItem.allergens.length == 0" >Nessun allergene presente</p>
         </div>
       </div>
       <div class="bottom-bar">

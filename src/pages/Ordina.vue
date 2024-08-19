@@ -10,7 +10,7 @@
         state,
         cartOpen: false,
         products: [],
-        allergiens: [],
+        allergens: [],
         ingredients: [],
         options: [],
         categories: [],
@@ -37,7 +37,7 @@
           description: '',
           category_name: '',
           ingredients: [],
-          allergiens: [],
+          allergens: [],
           special: [],
           
           options: [],
@@ -331,7 +331,7 @@
         si.price = p.price
         si.special = p.special
         si.ingredients = p.ingredients
-        si.allergiens = p.allergiens
+        si.allergens = p.allergens
         
         si.category_name = p.category.name
         si.category_id = p.category.id
@@ -342,17 +342,17 @@
         si.x_ing = false 
         si.x_ext = false 
         si.x_details = false 
-        //metto allergieni giusti negli ingredienti del prodotto
+        //metto allergeni giusti negli ingredienti del prodotto
         si.ingredients.forEach(e => {
-          //console.log(JSON.parse(e.allergiens))
-          let oldallergiens = JSON.parse(e.allergiens)
-          e.allergiens = []
+          //console.log(JSON.parse(e.allergens))
+          let oldallergens = JSON.parse(e.allergens)
+          e.allergens = []
           e.special = []
-          let newallergiens = oldallergiens.map(p => this.allergiens[p])
-          for (let i = 0; i < newallergiens.length; i++) {
-            let el = newallergiens[i];
+          let newallergens = oldallergens.map(p => this.allergens[p])
+          for (let i = 0; i < newallergens.length; i++) {
+            let el = newallergens[i];
             if(el.special == 0){
-              e.allergiens.push(el)
+              e.allergens.push(el)
             }else{
               e.special.push(el)
             }       
@@ -371,14 +371,14 @@
 				  }})
           this.options = options.data.results
           this.options.forEach(e => {    
-            let oldallergiens = JSON.parse(e.allergiens, true)
-            e.allergiens = []
+            let oldallergens = JSON.parse(e.allergens, true)
+            e.allergens = []
             e.special = []
-            let newallergiens = oldallergiens.map(p => this.allergiens[p])
-            for (let i = 0; i < newallergiens.length; i++) {
-              let el = newallergiens[i];
+            let newallergens = oldallergens.map(p => this.allergens[p])
+            for (let i = 0; i < newallergens.length; i++) {
+              let el = newallergens[i];
               if(el.special == 0){
-                e.allergiens.push(el)
+                e.allergens.push(el)
               }else{
                 e.special.push(el)
               }       
@@ -392,14 +392,14 @@
           }})
           this.ingredients = ingredients.data.results
           this.ingredients.forEach(e => {
-            let oldallergiens = JSON.parse(e.allergiens, true)
-            e.allergiens = []
+            let oldallergens = JSON.parse(e.allergens, true)
+            e.allergens = []
             e.special = []
-            let newallergiens = oldallergiens.map(p => this.allergiens[p])
-            for (let i = 0; i < newallergiens.length; i++) {
-              let el = newallergiens[i];
+            let newallergens = oldallergens.map(p => this.allergens[p])
+            for (let i = 0; i < newallergens.length; i++) {
+              let el = newallergens[i];
               if(el.special == 0){
-                e.allergiens.push(el)
+                e.allergens.push(el)
               }else{
                 e.special.push(el)
               }       
@@ -413,14 +413,14 @@
           }})
           this.ingredients = ingredients.data.results
           this.ingredients.forEach(e => {
-            let oldallergiens = JSON.parse(e.allergiens, true)
-            e.allergiens = []
+            let oldallergens = JSON.parse(e.allergens, true)
+            e.allergens = []
             e.special = []
-            let newallergiens = oldallergiens.map(p => this.allergiens[p])
-            for (let i = 0; i < newallergiens.length; i++) {
-              let el = newallergiens[i];
+            let newallergens = oldallergens.map(p => this.allergens[p])
+            for (let i = 0; i < newallergens.length; i++) {
+              let el = newallergens[i];
               if(el.special == 0){
-                e.allergiens.push(el)
+                e.allergens.push(el)
               }else{
                 e.special.push(el)
               }       
@@ -443,7 +443,7 @@
         si.removed = []
         si.options = []
         si.add = []
-        si.allergiens = []
+        si.allergens = []
         si.special = []
         si.type_plate = 0
         si.tag_set = 0
@@ -481,13 +481,13 @@
       async getProduct(c_Id){
         this.openCategory = false
         this.products = []
-        this.allergiens = []
+        this.allergens = []
         let products = await axios.get(state.baseUrl + "api/products", {
         params: {
           category: c_Id,
         }})
         this.products = products.data.results
-        this.allergiens = products.data.allergiens
+        this.allergens = products.data.allergens
         this.categories.forEach(c => {
           if(c.id == c_Id){
             this.category = c
@@ -501,13 +501,13 @@
         });
         this.products.forEach(e => {         
           e.special = []
-          let oldallergiens = JSON.parse(e.allergiens, true)
-          e.allergiens = []
-          let newallergiens = oldallergiens.map(p => this.allergiens[p])
-          for (let i = 0; i < newallergiens.length; i++) {
-            let el = newallergiens[i];
+          let oldallergens = JSON.parse(e.allergens, true)
+          e.allergens = []
+          let newallergens = oldallergens.map(p => this.allergens[p])
+          for (let i = 0; i < newallergens.length; i++) {
+            let el = newallergens[i];
             if(el.special == 0){
-              e.allergiens.push(el)
+              e.allergens.push(el)
             }else{
               e.special.push(el)
             }       
@@ -559,7 +559,7 @@
     <div class="cont-p" >
       <div class="product-card" v-for="p in products" :key="p.id" @click="openShow(p, selectedItem)">
         <div class="image-cont" :style="state.getImage(p.image)">
-          <div class="allergiens">
+          <div class="allergens">
             <img  v-for="a in p.special" :key="a.name" :src="a.img" alt="">
           </div>
         </div>
@@ -581,7 +581,7 @@
       <div class="image-c" :style="state.getImage(selectedItem.image)">
         <h3>{{ selectedItem.name }}</h3>
         <div class="bottom">
-          <div class="allergiens">
+          <div class="allergens">
             <img v-for="a in selectedItem.special" :key="a.name" :src="a.img" >
           </div>
           <span>{{ selectedItem.category_name }}</span>
@@ -597,7 +597,7 @@
             <div class="ing" v-for="i in options" :key="i.name">
                <div v-if="classIng('opt',i)" @click="editProd(0,'opt', i, selectedItem)" class="active">
                   <div class="name">{{ i.name }}</div>
-                  <div class="allergiens">
+                  <div class="allergens">
                     <img v-for="a in i.special" :key="a.name" :src="a.img" >
                   </div>
                   <div class="price">+ €{{ i.price  / 100}}</div>
@@ -605,7 +605,7 @@
 
                <div v-else @click="editProd(1,'opt', i, selectedItem)" class="not_act">
                   <div class="name">{{ i.name }}</div>
-                  <div class="allergiens">
+                  <div class="allergens">
                     <img v-for="a in i.special" :key="a.name" :src="a.img" >
                   </div>
                   <div class="price">+ €{{ i.price  / 100}}</div>
@@ -623,7 +623,7 @@
             <div class="ing" v-for="i in ingredients" :key="i.name">
                <div v-if="classIng('add',i)" @click="editProd(0,'add', i, selectedItem)" class="active">
                   <div class="name">{{ i.name }}</div>
-                  <div class="allergiens">
+                  <div class="allergens">
                     <img v-for="a in i.special" :key="a.name" :src="a.img" >
                   </div>
                   <div class="price">+ €{{ i.price  / 100}}</div>
@@ -631,7 +631,7 @@
 
                <div v-else @click="editProd(1,'add', i, selectedItem)" class="not_act">
                   <div class="name">{{ i.name }}</div>
-                  <div class="allergiens">
+                  <div class="allergens">
                     <img v-for="a in i.special" :key="a.name" :src="a.img" >
                   </div>
                   <div class="price">+ €{{ i.price  / 100}}</div>
@@ -650,14 +650,14 @@
             <div class="ing" v-for="i in selectedItem.ingredients" :key="i.name">
                <div v-if="!classIng('rem',i)" @click="editProd(1,'rem', i, selectedItem)" class="active">
                   <div class="name">{{ i.name }}</div>
-                  <div class="allergiens">
+                  <div class="allergens">
                     <img v-for="a in i.special" :key="a.name" :src="a.img" >
                   </div>
                </div>
 
                <div v-else @click="editProd(0,'rem', i, selectedItem)" class="not_act">
                   <div class="name">{{ i.name }}</div>
-                  <div class="allergiens">
+                  <div class="allergens">
                     <img v-for="a in i.special" :key="a.name" :src="a.img" >
                   </div>
                </div>
@@ -666,15 +666,15 @@
         </div>
         <div class="sect" v-if="!selectedItem.x_ || selectedItem.x_details">
           <div @click="open_x(4, selectedItem.category_id, false)" :class="selectedItem.x_details ? 'closer' : ''" class="head">
-            <div class="name">Descrizione e allergieni</div>
+            <div class="name">Descrizione e allergeni</div>
             <div class="opener"></div>
           </div>
-          <div v-if="selectedItem.x_details" class="body allergiens">
+          <div v-if="selectedItem.x_details" class="body allergens">
             <p>{{ selectedItem.description }}</p>
             <div class="al-c">
-              <img  v-for="a in selectedItem.allergiens" :key="a.name" :src="a.img" alt="">
+              <img  v-for="a in selectedItem.allergens" :key="a.name" :src="a.img" alt="">
             </div>
-            <p v-if="selectedItem.allergiens.length == 0" >Nessun allergiene presente.</p>
+            <p v-if="selectedItem.allergens.length == 0" >Nessun allergene presente.</p>
           </div>
         </div>
 
@@ -765,7 +765,7 @@
       .not_act{
         opacity: .3;
       }
-      .allergiens{
+      .allergens{
         flex-shrink: 0.5;
         padding:  0.4rem 3px;
         display: flex;
