@@ -377,13 +377,14 @@ transition: all .2s linear;
 
 }
 .info-on{
-height:100%;
-background-color:$c-footer-nav;
-width:100%;
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-transition: all .2s linear;
+  height:100%;
+  background-color:$c-footer-nav;
+  border-radius: 8px;
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all .2s linear;
 }
 
 .main-info-off{
