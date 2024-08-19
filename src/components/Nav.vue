@@ -82,8 +82,9 @@ export default {
     <div :class="state.navMobile ? 'top-on' : 'top-off'">
       <router-link :to="{ name: 'home' }" :class="state.infoside ?   'menu-off': '' " class="nav-link" @click="state.navMobile = false" >home</router-link>
       <router-link :to="{ name: 'menu' }" :class="state.infoside ? 'menu-off': '' " class="nav-link" @click="state.navMobile = false" >menu</router-link>
-      <router-link v-if="asporto" :to="{ name: 'ordina' }" :class="state.infoside ? 'menu-off': '' " class="nav-link" @click="state.navMobile = false" >Ordina d'Asporto</router-link>
-      <a href="tel:+393451187723" v-if="tavoli" :class="state.infoside ? 'menu-off': '' " class="nav-link"  >Prenota tavolo</a>
+      <router-link v-if="state.settings[1].status == 2" :to="{ name: 'ordina' }" :class="state.infoside ? 'menu-off': '' " class="nav-link" @click="state.navMobile = false" >Ordina d'Asporto</router-link>
+      <a :href="'tel:' + state.contact.telefono" v-if="state.settings[1].status == 1" :class="state.infoside ? 'menu-off': '' " class="nav-link"  >Ordina d'Asporto</a>
+      <a :href="'tel:' + state.contact.telefono" v-if="state.settings[0].status == 1" :class="state.infoside ? 'menu-off': '' " class="nav-link"  >Prenota tavolo</a>
       <router-link :to="{ name: 'news' }" :class="state.infoside ? 'menu-off': '' " class="nav-link" @click="state.navMobile = false" >news</router-link>
       <router-link :to="{ name: 'story' }" :class="state.infoside ? 'menu-off': '' " class="nav-link" @click="state.navMobile = false" >chi siamo?</router-link>
       <router-link :to="{ name: 'contatti' }" :class="state.infoside ? 'menu-off': '' " class="nav-link" @click="state.navMobile = false" >contatti</router-link>
