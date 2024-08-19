@@ -5,7 +5,7 @@ export const state = reactive({
   link_review: "http://google",
   baseUrl:"https://db.kojo-sushi.it/",
   //baseUrl: "http://127.0.0.1:8000/",
-  domain: "https://demo3-futureplus.netlify.app/",
+  domain: "https://glistening-blini-19d288.netlify.app/",
   getImageUrl(image) {
     return this.baseUrl + "public/storage/" + image;
   },
@@ -202,7 +202,7 @@ export const state = reactive({
       let link = 'background-image: url(' + this.getImageUrl(img) + ')'
       return link
     }else{
-      let link = 'background-image: url(' + this.domain + '/img/none.png' + ')'
+      let link = 'background-image: url(' + this.domain + '/img/default.png' + ')'
       return link
     }
     

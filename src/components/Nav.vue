@@ -169,7 +169,7 @@ export default {
   background-color: white;
   display: flex;
   width: 100%;
-  height: 250px;
+  height: 275px;
   z-index: 100;
   box-shadow: 0px 5px 30px  black;
   .left-nav{
