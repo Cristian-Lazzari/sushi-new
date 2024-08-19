@@ -40,7 +40,7 @@
 <template>
   <div class="main-about">
     <h1 v-if="state.post_p == 2" >Storia del nostro Locale</h1>
-    <h1 v-else>Scopri news, eventi e promozioni</h1>
+    <h1 v-if="state.post_p == 1">Scopri news, eventi e promozioni</h1>
     <div class="post-container">
       <div v-for="post in posts" :key="post.id" class="post" >
         <img class="image" :src=" state.getImageUrl(post.image)" alt="">

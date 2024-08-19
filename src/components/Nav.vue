@@ -36,11 +36,12 @@ export default {
       <div class="nav2">
         <img src="../assets/img/punta2.png" alt="">
         <div class="menu">
-          <router-link :to="{ name: 'home' }" :class="state.actvPage == 1 ? 'active-link' : '' " class="nav-link" @click="state.updateActvPage(1)" >home</router-link>
-          <router-link :to="{ name: 'menu' }" :class="state.actvPage == 2 ? 'active-link' : '' " class="nav-link" @click="state.updateActvPage(2)" >menu</router-link>
-          <router-link :to="{ name: 'ordina' }" v-if="asporto" :class="state.actvPage == 5 ? 'active-link' : '' " class="nav-link" @click="state.updateActvPage(5)" >Ordina d'Asporto</router-link>
+          <router-link :to="{ name: 'home' }" :class="state.actvPage == 1 ? 'active-link' : '' " class="nav-link" >home</router-link>
+          <router-link :to="{ name: 'menu' }" :class="state.actvPage == 2 ? 'active-link' : '' " class="nav-link" >menu</router-link>
+          <router-link :to="{ name: 'ordina' }" v-if="state.settings[1].status == 2" :class="state.actvPage == 5 ? 'active-link' : '' " class="nav-link" >Ordina d'Asporto</router-link>
+          <a :href="'tel:' + state.contact.telefono" v-else class="nav-link"  >Ordina d'Asporto</a>
           <a :href="'tel:' + state.contact.telefono" v-if="state.settings[0].status == 1" class="nav-link"  >Prenota tavolo</a>
-          <!-- <router-link :to="{ name: 'prenotaServizio' }" :class="state.actvPage == 6 ? 'active-link' : '' " class="nav-link" @click="state.updateActvPage(6)" >Prenota tavolo</router-link> -->
+          <!-- <router-link :to="{ name: 'prenotaServizio' }" :class="state.actvPage == 6 ? 'active-link' : '' " class="nav-link" >Prenota tavolo</router-link> -->
         </div>
 
       </div>
@@ -51,7 +52,7 @@ export default {
       <div class="nav4">
         <div class="left-nav4">
           <img src="../assets/img/puntacsleft.png" alt="">
-          <router-link :to="{ name: 'news' }" :class="state.actvPage == 3 ? 'active-link' : '' "  @click="state.updateActvPage(3)" class="chi-siamo" ><span>chi siamo?</span></router-link>
+          <router-link :to="{ name: 'news' }" :class="state.actvPage == 3 ? 'active-link' : '' "  class="chi-siamo" ><span>chi siamo?</span></router-link>
           <img src="../assets/img/puntacsright.png" alt="">
         </div>
         <div class="center-nav4">
@@ -59,7 +60,7 @@ export default {
         </div>
         <div class="right-nav4">
           <img src="../assets/img/puntac.png" alt="">
-          <div class="contatti"><router-link :to="{ name: 'contatti' }" :class="state.actvPage == 4 ? 'active-link' : '' " class="nav-link" @click="state.updateActvPage(4)" >contatti</router-link></div>
+          <div class="contatti"><router-link :to="{ name: 'contatti' }" :class="state.actvPage == 4 ? 'active-link' : '' " class="nav-link" >contatti</router-link></div>
         </div>
       </div>
     </div>
@@ -695,7 +696,7 @@ height: 0%;
 }
 @media (max-width: 1300px) {
   .nav{
-    height: 90px !important;
+    height: 80px !important;
     .right-nav{
       display: none;
     }

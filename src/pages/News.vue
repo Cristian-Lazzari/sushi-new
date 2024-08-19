@@ -14,7 +14,7 @@
 
     },
     created(){
-      this.state.post_p = 2
+      this.state.post_p = 1
       this.state.getSetting();
     }
   };
