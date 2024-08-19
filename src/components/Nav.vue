@@ -17,7 +17,7 @@ export default {
   },
   async created(){
  
-   console.log(this.state.settings)  
+    this.state.getSetting();
   }
 };
 </script>

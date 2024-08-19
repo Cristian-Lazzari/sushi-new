@@ -47,7 +47,7 @@
         
         <div class="text">
           <h4>{{ post.title }}</h4>
-          <p v-for="d in desk(post.description)"> 
+          <p v-for="d in desk(post.description)" :key="d"> 
             <span :class="i% 2 == 0 ? 'strong': ''" :key="i" v-for="(g, i) in d" >{{ g }}</span>
           </p>
         </div>

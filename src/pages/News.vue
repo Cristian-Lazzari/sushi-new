@@ -14,6 +14,7 @@
 
     },
     created(){
+      this.state.post_p = 2
       this.state.getSetting();
     }
   };
