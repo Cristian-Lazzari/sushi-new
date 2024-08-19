@@ -73,7 +73,9 @@
       </div>
       <div class="bottom">
         <h2>Orari d'apertura</h2>
-        <p v-for="(g, i) in state.orari_aperture" :key="i"><span class="day">{{ i }}</span> <span class="time"> {{ g }}</span></p>
+        <p v-for="(g, i) in state.orari_aperture" :key="i">
+          <span class="day">{{ i }}</span> <span class="time"> {{ g }}</span>
+        </p>
       </div>
     </section>
   </div>
