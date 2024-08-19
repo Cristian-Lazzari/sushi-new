@@ -8,11 +8,6 @@ export default {
       state,
       asporto: false,
       tavoli: false,
-      ferie : {
-        status : false,
-        from : '',
-        to: ''
-      }
     };
   },
   methods: {
@@ -21,17 +16,8 @@ export default {
     }
   },
   async created(){
-   let respo = await axios.get(this.state.baseUrl + 'api/setting') 
-   let setting = respo.data.results
-   this.asporto = setting[0].status
-   this.tavoli = setting[1].status
-   this.ferie.status = setting[2].status
-   this.ferie.from = setting[2].from
-   this.ferie.to = setting[2].to
-   
-   
-   
-   console.log(this.setting)  
+ 
+   console.log(this.state.settings)  
   }
 };
 </script>
@@ -53,7 +39,7 @@ export default {
           <router-link :to="{ name: 'home' }" :class="state.actvPage == 1 ? 'active-link' : '' " class="nav-link" @click="state.updateActvPage(1)" >home</router-link>
           <router-link :to="{ name: 'menu' }" :class="state.actvPage == 2 ? 'active-link' : '' " class="nav-link" @click="state.updateActvPage(2)" >menu</router-link>
           <router-link :to="{ name: 'ordina' }" v-if="asporto" :class="state.actvPage == 5 ? 'active-link' : '' " class="nav-link" @click="state.updateActvPage(5)" >Ordina d'Asporto</router-link>
-          <a href="tel:+393451187723" v-if="tavoli" class="nav-link"  >Prenota tavolo</a>
+          <a :href="'tel:' + state.contact.telefono" v-if="state.settings[0].status == 1" class="nav-link"  >Prenota tavolo</a>
           <!-- <router-link :to="{ name: 'prenotaServizio' }" :class="state.actvPage == 6 ? 'active-link' : '' " class="nav-link" @click="state.updateActvPage(6)" >Prenota tavolo</router-link> -->
         </div>
 
@@ -110,7 +96,7 @@ export default {
 
           <div class="sec-1">
             <h4>Dove puoi trovarci</h4>
-            <p>monte san vito</p>
+            <p><a :href="state.position.link_maps">{{ state.position.indirizzo }}</a></p>
           </div>
 
           <div class="sec-2">
@@ -124,14 +110,8 @@ export default {
                 <span>sabato</span>
                 <span>domenica</span>
             </div>
-            <div class="cont-orari">
-              <span class="time" >12-15 - 19-23</span>
-              <span class="time" >chiusi</span>
-              <span class="time" >12-15 - 19-23</span>
-              <span class="time" >12-15 - 19-23</span>
-              <span class="time" >12-15 - 19-23</span>
-              <span class="time" >12-15 - 19-23</span>
-              <span class="time" >12-15 - 19-23</span>
+            <div class="cont-orari" >
+              <span v-for="(g, i) in state.orari_aperture" :key="i" class="time"> {{ g }}</span>
             </div>
           </div>
 
@@ -428,6 +408,9 @@ gap: 25px;
 
     }
     p{
+      a{
+        color: $c5;
+      }
       font-size:16px;
     }
   }
@@ -715,12 +698,6 @@ height: 0%;
     .right-nav{
       display: none;
     }
-  }
-  .ferie-mb{
-    display: block;
-  }
-  .ferie{
-    display: none;
   }
   .nav-mb{
     display: flex!important;
