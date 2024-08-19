@@ -62,7 +62,7 @@ body{
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.56);
     z-index: 1000;
     overflow: hidden;
-    //border-bottom: 7px solid white ;
+    border-bottom: 4px solid white ;
   }
   .sub-page{
     height: 100%;

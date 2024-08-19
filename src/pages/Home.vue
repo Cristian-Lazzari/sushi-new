@@ -101,10 +101,10 @@
       align-items: flex-end;
       p{
         text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.719);
-        font-size: $fs_sm;
+        font-size: $fs_md;
       }
       h2{
-        font-size: $fs_lg;
+        font-size: $fs_xlg;
         text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.495);
       }
     }
@@ -138,6 +138,7 @@
       flex-grow: 1;
       padding: 1.2rem !important;
       gap: 1rem !important;
+      margin-right: 33px;
       
     }
   }
