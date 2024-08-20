@@ -141,8 +141,8 @@
     .text{
       flex-grow: 1;
       padding: 1.2rem !important;
-      gap: 1rem !important;
-      margin-right: 33px;
+      gap: .7rem !important;
+      margin-right: 29px;
       
     }
   }
