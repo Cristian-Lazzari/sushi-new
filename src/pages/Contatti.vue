@@ -71,7 +71,7 @@
         <p>
           Siamo qui per rendere la tua esperienza perfetta. Hai domande, richieste speciali o vuoi semplicemente sapere di più sui nostri piatti? Non esitare a contattarci! Puoi raggiungerci telefonicamente o via email. Il nostro team sarà felice di assisterti in ogni momento.
         </p>
-        <div class="btn_1">Prenota</div>
+        <a style="text-decoration: none;" :href="'tel:' + state.contact.telefono" class="btn_1">Contattaci</a>
       </div>
       <div class="bottom">
         <h2>Orari d'apertura</h2>
