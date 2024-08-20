@@ -17,6 +17,7 @@
         domicilio : false,
         indirizzi : [],
 
+        loading : false,
         error:{
           calendar : '',
           n_person : '',
@@ -66,6 +67,7 @@
         this.error.comune =''
         this.error.tc =''
         if(this.state.validation(this.state.checkOut_t, this.typeOfOrdering, this.user, this.error)){
+          this.loading = true
           if(this.state.checkOut_t == 1){
             let body = {
               date_slot,
@@ -89,6 +91,7 @@
               this.days = []
               this.getDay(this.state.checkOut_t)
               this.$router.replace("/")
+              this.loading = false
 
             }else{
               this.state.message.title = 'Ops...'
@@ -99,6 +102,7 @@
               this.day = ''
               this.days = []
               this.getDay(this.state.checkOut_t)
+              this.loading = false
             }
 
           }else if(this.state.checkOut_t == 2){
@@ -128,6 +132,7 @@
               this.state.cart.products = []
               this.state.getTotCart()
               this.$router.replace("/ordina")
+              this.loading = false
 
             }else{
               this.state.message.title = 'Ops...'
@@ -138,6 +143,7 @@
               this.day = ''
               this.days = []
               this.getDay(this.state.checkOut_t)
+              this.loading = false
             }
 
           }else if(this.state.checkOut_t == 3){
@@ -170,6 +176,7 @@
               this.state.cart.products = []
               this.state.getTotCart()
               this.$router.replace("/ordina")
+              this.loading = false
 
             }else{
               this.state.message.title = 'Ops...'
@@ -180,6 +187,7 @@
               this.day = ''
               this.days = []
               this.getDay(this.state.checkOut_t)
+              this.loading = false
             }
 
           }
@@ -497,12 +505,12 @@
     <section v-if="time && state.checkOut_t == 1 " >
       <h3>Indica il numero di persone del tavolo</h3>
       <div class="card n_person">
-        <div class="plus" @click="modNperson(1)">
+        <div class="minus" @click="modNperson(0)">
           <div class="line l1"></div>
           <div class="line"></div>
         </div>
         <div class="person">{{ n_person }}</div>
-        <div class="minus" @click="modNperson(0)">
+        <div class="plus" @click="modNperson(1)">
           <div class="line"></div>
         </div>
       </div>
@@ -634,7 +642,7 @@
 
     </section>
     
-    <div v-if="av && (n_person || state.checkOut_t == 2 || state.checkOut_t == 3)" @click="sendOrder" class="btn_3 go">CONFERMA</div>
+    <div v-if="av && (n_person || state.checkOut_t == 2 || state.checkOut_t == 3) && !loading" @click="sendOrder" class="btn_3 go">CONFERMA</div>
   </div>
 </template>
 
