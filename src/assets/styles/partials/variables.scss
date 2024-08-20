@@ -433,7 +433,7 @@ from {
     opacity: 0;
     width: 100%;
     background: linear-gradient($c1,  $c4 ) ;
-    z-index: 300;
+    z-index: 3000;
     box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.624);
     transition: opacity .1s ease-in , height .3s ease-in;
     .show-close{
@@ -448,6 +448,8 @@ from {
         font-size: $fs_md;
         text-transform: uppercase;
         margin: -70px auto 0;
+        position: relative;
+        z-index: 2000;
         
         //background-image: url('../../public/img/top-pop.png');
 
