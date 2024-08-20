@@ -115,6 +115,7 @@
       }
       a{
         width: 70%;
+        text-align: right;
         flex: 1 2 auto;
         text-overflow: ellipsis;
       }
