@@ -21,7 +21,7 @@
             'img' : state.domain + '/img/sushi-2.png',
             'p' : 'Vuoi goderti l’atmosfera rilassante del nostro ristorante? Prenota un tavolo e vivi un’esperienza unica, dove ogni dettaglio è curato per farti sentire speciale. Che sia per una cena romantica o una serata tra amici, ti aspettiamo per deliziarti con il meglio del sushi.',
             'cta' : 'Prenota tavolo',
-            'cta_destination' : 'check-out',  //1 asporto 2 tavoli 3 menu 4 contatti 5 about us
+            'cta_destination' : 'contatti',  //1 asporto 2 tavoli 3 menu 4 contatti 5 about us
           },
           {
             'title' : 'Ordina a domicilio o d\'asporto',
@@ -82,7 +82,7 @@
     height: 100% ;
     .img-sect{
       flex-shrink: 0;
-      width: 64%;
+      width: 60%;
       img{
         object-fit: cover;
         background-size: cover;
@@ -96,12 +96,16 @@
       padding: 8%;
       display: flex;
       flex-direction: column;
-      gap: 2em;
+      gap: .7rem;
       text-align: right;
       align-items: flex-end;
       p{
         text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.719);
         font-size: $fs_md;
+        opacity: .8;
+      }
+      .btn_1{
+        margin-top: 1rem;
       }
       h2{
         font-size: $fs_xlg;

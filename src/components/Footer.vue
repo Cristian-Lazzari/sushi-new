@@ -19,9 +19,9 @@
   <footer>
     <div class="legal">
       <h4>Informazioni legali: </h4>
-      <a href="">Privacy Policy</a>
-      <a href="">Cookie Policy</a>
-      <a href="">Creato da Future plus</a>
+      <a href="https://www.iubenda.com/privacy-policy/89654778">Privacy Policy</a>
+      <a href="https://www.iubenda.com/privacy-policy/89654778/cookie-policy">Cookie Policy</a>
+      <a href="https://future-plus.it">Creato da Future plus</a>
     </div>
   </footer>
 

@@ -693,7 +693,13 @@ height: 0%;
 }
 @media (max-width: 1300px) {
   .nav{
-    height: 80px !important;
+    height: 120px !important;
+    img{
+      height: 100% !important;
+    }
+    .left-nav{
+      padding:3px 5px 3px 40px!important;
+    }
     .right-nav{
       display: none;
     }
@@ -707,14 +713,7 @@ height: 0%;
 
 @media (max-width: 600px){
   .nav{
-    
-    .left-nav{
-        padding:3px 0px 3px 40px!important;
-        img{
-          height: 100%;
-        }
-      
-    }
+    height: 90px !important;
   }
 }
 @media (max-width: 450px){
