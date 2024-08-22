@@ -228,7 +228,7 @@
           <p>{{ fixtag(selectedItem.ingredients) }}</p>
         </div>
       </div>
-      <div class="sect" v-if="selectedItem.description !== null">
+      <div class="sect" v-if="selectedItem.description !== null && selectedItem.description !== ''">
         <div @click="open_x(2)" :class="selectedItem.x_desc ? 'closer' : ''" class="head">
           <div class="name">Descrizione</div>
           <div class="opener"></div>

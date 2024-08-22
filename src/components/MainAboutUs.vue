@@ -48,7 +48,7 @@
         <div class="text">
           <h4>{{ post.title }}</h4>
           <p v-for="d in desk(post.description)" :key="d"> 
-            <span :class="i% 2 == 0 ? 'strong': ''" :key="i" v-for="(g, i) in d" >{{ g }}</span>
+            <span :class="i % 2 !== 0 ? 'strong': ''" :key="i" v-for="(g, i) in d" >{{ g }}</span>
           </p>
         </div>
         <div class="img-cont">
@@ -171,10 +171,18 @@ $border_r_card: 20px;
         width: 40%;
         text-align: right;
         h4{
-          font-size: clamp(18px, 2.2vw, 25px);
+          font-size: clamp(22px, 2.4vw, 27px);
         }
         p{
-          font-family: "Nunito", sans-serif;
+          span{
+
+            font-family: "Nunito", sans-serif;
+          }
+          .strong{
+            font-weight: bolder;
+            font-size: 120%;
+            font-family: "Jockey One", sans-serif;
+          }
           font-weight: lighter;
           font-size: clamp(14px, 1.8vw, 18px);
         }

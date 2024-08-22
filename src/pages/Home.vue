@@ -99,6 +99,10 @@
       gap: .7rem;
       text-align: right;
       align-items: flex-end;
+      h2{
+        font-size: $fs_xlg;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.495);
+      }
       p{
         text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.719);
         font-size: $fs_md;
@@ -106,10 +110,6 @@
       }
       .btn_1{
         margin-top: 1rem;
-      }
-      h2{
-        font-size: $fs_xlg;
-        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.495);
       }
     }
   }
