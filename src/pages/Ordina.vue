@@ -360,10 +360,7 @@
         });
 
         if(si.tag_set >= 2){
-          // se si puo aggiungiere e toglire 
-          si.x_ = true 
-          si.x_opt = true 
-          // chiedo e imposto le options
+          // se si puo aggiungiere chiedo e imposto le options
           let options = await axios.get(state.baseUrl + "api/getIngredient", {
 					params: {
 						category: p.category.id,
@@ -384,7 +381,6 @@
               }       
             }
           })
-          // ... e chiedo gli extra ing
           let ingredients = await axios.get(state.baseUrl + "api/getIngredient", {
             params: {
               category: p.category_id,
@@ -405,31 +401,17 @@
               }       
             }
           });
-        }else if(si.tag_set == 1){
-          let ingredients = await axios.get(state.baseUrl + "api/getIngredient", {
-          params: {
-            category: p.category_id,
-            option: '0',
-          }})
-          this.ingredients = ingredients.data.results
-          this.ingredients.forEach(e => {
-            let oldallergens = JSON.parse(e.allergens, true)
-            e.allergens = []
-            e.special = []
-            let newallergens = oldallergens.map(p => this.allergens[p])
-            for (let i = 0; i < newallergens.length; i++) {
-              let el = newallergens[i];
-              if(el.special == 0){
-                e.allergens.push(el)
-              }else{
-                e.special.push(el)
-              }       
-            }
-          });
-           
-          si.x_ = false 
-          si.x_opt = false 
         }
+        if(si.tag_set == 1 && this.selectedItem.ingredients.length !== 0 ){
+            si.x_ = true 
+            si.x_ing = true 
+          }else if(si.tag_set > 1 && this.options.length !== 0 ){
+            si.x_ = true 
+            si.x_opt = true 
+          }else if(si.tag_set > 1 && this.ingredients.length !== 0 ){
+            si.x_ = true 
+            si.x_ext = true 
+          }
       },
       closeShow(si){
         si.opened = false
