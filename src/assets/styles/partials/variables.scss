@@ -547,6 +547,7 @@ from {
         .head{
             display: flex;
             justify-content: space-between; 
+            align-items: center;
             opacity: .6;
             font-size: $fs_md;   
             .opener{
