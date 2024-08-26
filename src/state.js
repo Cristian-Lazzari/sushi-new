@@ -5,7 +5,7 @@ export const state = reactive({
   link_review: "http://google",
   baseUrl:"https://db.kojo-sushi.it/",
   //baseUrl: "http://127.0.0.1:8000/",
-  domain: "https://glistening-blini-19d288.netlify.app/",
+  domain: "https://kojo-sushi.netlify.app/",
   getImageUrl(image) {
     return this.baseUrl + "public/storage/" + image;
   },
