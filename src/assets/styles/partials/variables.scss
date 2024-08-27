@@ -84,6 +84,11 @@ $fs_xlg: clamp(28px, 3.8vw, 42px);
     text-align: center;
     white-space: nowrap;
 }
+.btn_1:hover, .btn_2:hover, .btn_3:hover, .hv:hover{
+    scale: .97;
+    box-shadow: 2px 1px 3px rgba(0, 0, 0, 0.431);
+    transition: all .2s ease-in-out;
+}
 .btn_2{
     background-color: $c4;
     color: $c5;
