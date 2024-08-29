@@ -222,7 +222,9 @@
       <div class="sect" v-if="selectedItem.ingredients.length !== 0" >
         <div @click="open_x(1)" :class="selectedItem.x_ing ? 'closer' : ''" class="head">
           <div class="name">Ingredienti</div>
-          <div class="opener"></div>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="opener bi bi-chevron-down" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+          </svg>
         </div>
         <div v-if="selectedItem.x_ing" class="body">
           <p>{{ fixtag(selectedItem.ingredients) }}</p>
@@ -231,7 +233,9 @@
       <div class="sect" v-if="selectedItem.description !== null && selectedItem.description !== ''">
         <div @click="open_x(2)" :class="selectedItem.x_desc ? 'closer' : ''" class="head">
           <div class="name">Descrizione</div>
-          <div class="opener"></div>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="opener bi bi-chevron-down" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+          </svg>
         </div>
         <div v-if="selectedItem.x_desc" class="body">
           <p>{{ selectedItem.description }}</p>
@@ -240,7 +244,9 @@
       <div class="sect">
         <div @click="open_x(3)" :class="selectedItem.x_al ? 'closer' : ''" class="head">
           <div class="name">Allergeni</div>
-          <div class="opener"></div>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="opener bi bi-chevron-down" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+          </svg>
         </div>
         <div v-if="selectedItem.x_al" class="body allergens">
           <img  v-for="a in selectedItem.allergens" :key="a.name" :src="a.img" alt="">

@@ -573,7 +573,9 @@
         <div class="sect" v-if="(!selectedItem.x_ || selectedItem.x_opt) && (selectedItem.tag_set > 1 && options.length !== 0)">
           <div @click="open_x(1, selectedItem.category_id, 'yes')" :class="selectedItem.x_opt ? 'closer' : ''" class="head">
             <div class="name">Scegli le opzioni</div>
-            <div class="opener"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="opener bi bi-chevron-down" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+            </svg>
           </div>
           <div v-if="selectedItem.x_opt" class="body">
             <div class="ing" v-for="i in options" :key="i.name">
@@ -599,7 +601,9 @@
         <div class="sect" v-if="(!selectedItem.x_ || selectedItem.x_ext) && (selectedItem.tag_set > 1 && ingredients.length !== 0)">
           <div @click="open_x(2, selectedItem.category_id, false)" :class="selectedItem.x_ext ? 'closer' : ''" class="head">
             <div class="name">Aggiungi ingredienti</div>
-            <div class="opener"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="opener bi bi-chevron-down" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+            </svg>
           </div>
           <div v-if="selectedItem.x_ext" class="body">
             <div class="ing" v-for="i in ingredients" :key="i.name">
@@ -626,7 +630,9 @@
         <div class="sect" v-if="(!selectedItem.x_ || selectedItem.x_ing && selectedItem.ingredients.length !== 0)  && (selectedItem.tag_set == 1 || selectedItem.tag_set == 3)" >
           <div @click="open_x(3, selectedItem.category_id, false)" :class="selectedItem.x_ing ? 'closer' : ''" class="head">
             <div class="name">Rimuovi ingredienti</div>
-            <div class="opener"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="opener bi bi-chevron-down" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+            </svg>
           </div>
           <div v-if="selectedItem.x_ing" class="body">
             <div class="ing" v-for="i in selectedItem.ingredients" :key="i.name">
@@ -649,7 +655,9 @@
         <div class="sect" v-if="!selectedItem.x_ || selectedItem.x_details">
           <div @click="open_x(4, selectedItem.category_id, false)" :class="selectedItem.x_details ? 'closer' : ''" class="head">
             <div class="name">Descrizione e allergeni</div>
-            <div class="opener"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="opener bi bi-chevron-down" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+            </svg>
           </div>
           <div v-if="selectedItem.x_details" class="body allergens">
             <p>{{ selectedItem.description }}</p>
