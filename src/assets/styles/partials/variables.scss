@@ -556,10 +556,9 @@ from {
             opacity: .6;
             font-size: $fs_md;   
             .opener{
-                background-image: url('../../public/img/o-c.png');
                 background-position: center;
                 background-size: cover;
-                height: 12px;
+                height: 30px;
                 aspect-ratio: 1.8;
                 transition: all .3s ease-in-out;
             }
