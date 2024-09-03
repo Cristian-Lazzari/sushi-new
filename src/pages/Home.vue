@@ -58,7 +58,8 @@
       <div class="text">
         <h2>{{par.title}}</h2>
         <p>{{ par.p }}</p>
-        <div @click="navigate_to(par.cta_destination)" class="btn_1">{{ par.cta }}</div>
+        <div v-if="state.settings[1].status == 1 && par.cta_destination == 'ordina'" @click="navigate_to('contatti')" class="btn_1">{{ par.cta }}</div>
+        <div v-else @click="navigate_to(par.cta_destination)" class="btn_1">{{ par.cta }}</div>
       </div>
     </section>
   </div>
