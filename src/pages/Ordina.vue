@@ -344,8 +344,12 @@
         si.x_details = false 
         //metto allergeni giusti negli ingredienti del prodotto
         si.ingredients.forEach(e => {
-          //console.log(JSON.parse(e.allergens))
-          let oldallergens = JSON.parse(e.allergens)
+          let oldallergens = []
+          if (typeof e.allergens === 'string'){
+            oldallergens = JSON.parse(e.allergens)
+          }else{ 
+            oldallergens = e.allergens
+          }
           e.allergens = []
           e.special = []
           let newallergens = oldallergens.map(p => this.allergens[p])
@@ -429,7 +433,8 @@
         si.special = []
         si.type_plate = 0
         si.tag_set = 0
-        si.x_opt = true
+        si.x_ = false
+        si.x_opt = false
         si.x_ext = false
         si.x_ing = false
         si.x_details = false
