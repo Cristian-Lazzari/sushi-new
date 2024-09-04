@@ -321,6 +321,9 @@
         if(this.cartOpen){
           return
         }
+        if(this.selectedItem.opened){
+          return
+        }
         this.ingredients = []
         si.opened = true
 
